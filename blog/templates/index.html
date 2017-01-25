@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% for post in posts %}
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="conainer-fluid">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="{{ post.image }}" alt="" class="img-responsive">
+                            </div>
+                            <div class="col-md-8">
+                                <h1>{{ post.title }}</h1>
+                                {{ post.description|linebreaks|truncatechars:255 }}
+                                <p><b>Criado em - {{ post.created_at }}</b></p>
+                                <a href="{{ post.get_absolute_url }}" class="btn btn-primary">Leia mais</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+        <h3>Não possui nenhum post cadastrado!</h3>
+    {% endfor %}
+</div>
+{% endblock %}
