@@ -22,7 +22,9 @@
             </div>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{% url 'blog:index' %}">Inicio</a></li>
+                {% if user.is_authenticated %}
                 <li><a href="{% url 'blog:posts' %}">Posts</a></li>
+                {% endif %}
             </ul>
         </div>
     </nav>

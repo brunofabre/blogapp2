@@ -13,7 +13,7 @@
                                 <h4>POSTS</h4>
                             </div>
                             <div class="col-md-2">
-                                <a href="#" class="btn btn-primary">Criar Post</a>
+                                <a href="{% url 'blog:create' %}" class="btn btn-primary">Criar Post</a>
                             </div>
                         </div>
                     </div>
@@ -39,10 +39,11 @@
                                     <td>{{ post.title }}</td>
                                     <td>{{ post.category }}</td>
                                     <td>{{ post.created_at }}</td>
-                                    <td><a href="{{ post.get_absolute_url }}">Ver</a> | <a href="#">Editar</a> |
+                                    <td>
                                         <form action="{% url 'blog:delete' post.slug %}" method="post">
                                             {% csrf_token %}
-                                            <button type="submit" class="btn btn-danger">Excluir</button>
+                                            <a href="{{ post.get_absolute_url }}" class="btn btn-primary btn-sm">Ver</a> | <a href="{% url 'blog:edit' post.slug %}" class="btn btn-primary btn-sm">Editar</a> |
+                                            <button type="submit" class="btn btn-danger btn-sm">Excluir</button>
                                         </form>
                                     </td>
                                 </tr>
