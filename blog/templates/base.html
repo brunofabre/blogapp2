@@ -23,13 +23,18 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{% url 'blog:index' %}">Inicio</a></li>
                 {% if user.is_authenticated %}
-                <li><a href="{% url 'blog:posts' %}">Posts</a></li>
+                    <li><a href="{% url 'blog:posts' %}">Posts</a></li>
+                    <li><a href="{% url 'logout' %}">Sair</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Entrar</a></li>
                 {% endif %}
             </ul>
         </div>
     </nav>
 
-    {% block content %}{% endblock %}
+    {% block content %}
+
+    {% endblock %}
 
 </body>
 </html>
