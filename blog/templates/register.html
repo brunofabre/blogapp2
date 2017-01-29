@@ -3,7 +3,7 @@
 {% load widget_tweaks %}
 
 {% block title %}
-    Entrar
+    Registro
 {% endblock %}
 
 {% block content %}
@@ -15,17 +15,17 @@
                     <div class="conainer-fluid">
                         <div class="row">
                             <div class="col-md-10 col-md-offset-2">
-                                <h1>Entrar em uma conta</h1>
+                                <h1>Registrar</h1>
                             </div>
                         </div>
                         <hr>
                         <form class="form-horizontal" method="post">
+                            {% csrf_token %}
                             {% for error in form.non_field_errors %}
                                 <div class="alert alert-danger">
                                     {{ error }}
                                 </div>
                             {% endfor %}
-                            {% csrf_token %}
                             <fieldset>
                                 {% for field in form %}
                                 <div class="form-group{% if field.errors %} has-error{% endif %}">
@@ -40,7 +40,7 @@
                                 {% endfor %}
                                 <div class="form-group">
                                     <div class="col-sm-offset-2 col-sm-10">
-                                        <button type="submit" class="btn btn-success">Entrar</button>
+                                        <button type="submit" class="btn btn-success">Registrar</button>
                                     </div>
                                 </div>
                             </fieldset>
