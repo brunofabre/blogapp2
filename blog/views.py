@@ -47,17 +47,9 @@ class PostDeleteView(LoginRequiredMixin, generic.DeleteView):
     success_url = reverse_lazy('blog:posts')
 
 
-class RegisterView(generic.CreateView):
-    form_class = UserCreationForm
-    model = User
-    template_name = 'register.html'
-    success_url = reverse_lazy('login')
-
-
 index = IndexView.as_view()
 posts = PostsView.as_view()
 detail = DetailView.as_view()
 create = PostCreateView.as_view()
 edit = PostEditView.as_view()
 delete = PostDeleteView.as_view()
-register = RegisterView.as_view()

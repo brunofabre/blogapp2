@@ -8,6 +8,4 @@ urlpatterns = [
     url(r'^create/$', views.create, name='create'),
     url(r'^editar/(?P<slug>[\w_-]+)/$', views.edit, name='edit'),
     url(r'^post/(?P<slug>[\w_-]+)/delete/$', views.delete, name='delete'),
-
-    url(r'^registro/$', views.register, name='register'),
 ]
